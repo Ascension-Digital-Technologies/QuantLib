@@ -1,0 +1,62 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": { "major": 3, "minor": 20, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "release",
+      "displayName": "Release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "QUANTLIB_ENABLE_HARDENING": "ON",
+        "QUANTLIB_ENABLE_OPENSSL": "ON"
+      }
+    },
+    {
+      "name": "dev",
+      "displayName": "Developer Debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/dev",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "QUANTLIB_BUILD_TESTS": "ON",
+        "QUANTLIB_BUILD_EXAMPLES": "ON"
+      }
+    },
+    {
+      "name": "sanitizer",
+      "displayName": "Sanitizer",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/sanitizer",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "QUANTLIB_ENABLE_SANITIZERS": "ON",
+        "QUANTLIB_ENABLE_HARDENING": "ON"
+      }
+    },
+    {
+      "name": "pq",
+      "displayName": "Release with liboqs provider detection",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/pq",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "QUANTLIB_ENABLE_LIBOQS": "ON",
+        "QUANTLIB_ENABLE_OPENSSL": "ON",
+        "QUANTLIB_ENABLE_HARDENING": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "release", "configurePreset": "release" },
+    { "name": "dev", "configurePreset": "dev" },
+    { "name": "sanitizer", "configurePreset": "sanitizer" },
+    { "name": "pq", "configurePreset": "pq" }
+  ],
+  "testPresets": [
+    { "name": "release", "configurePreset": "release", "output": { "outputOnFailure": true } },
+    { "name": "dev", "configurePreset": "dev", "output": { "outputOnFailure": true } },
+    { "name": "sanitizer", "configurePreset": "sanitizer", "output": { "outputOnFailure": true } }
+  ]
+}

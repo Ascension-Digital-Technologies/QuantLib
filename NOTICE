@@ -1,0 +1,3 @@
+QuantLib production-ready source snapshot.
+
+Optional providers such as OpenSSL, liboqs, CUDA, and OpenCL are separate projects with their own licenses and security policies. This repository includes provider integration boundaries and does not vendor those providers by default.

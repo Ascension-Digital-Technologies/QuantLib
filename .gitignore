@@ -1,0 +1,47 @@
+# Build outputs
+build/
+bin/*
+!bin/.gitkeep
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+*.exe
+*.pdb
+*.ilk
+*.exp
+*.out
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+install_manifest.txt
+
+# Test/runtime artifacts
+*.vault
+*.vault.bak
+*.vault.tmp
+*.log
+*.profraw
+*.profdata
+coverage/
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Release artifacts
+*.zip
+*.tar.gz
+*.sha256
+*.sig
+sbom.json
